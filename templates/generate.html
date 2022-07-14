@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{ url_for('static', filename='js/test.js') }}"></script>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <title>ScheduledIt</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ScheduleIt</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Help</a>
+                    </li>
+                
+                     
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </nav>
+
+    <br>
+    <br>
+    <div>
+        <py-repl id="my-repl" autogenerate="true"></py-repl>
+    </div>
+
+    <div>
+
+> Generation # 0
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.2   |       4        | CSE,TCT201,PCTB213,I1,MT5, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,PCTB211,I1,MT3, IT,TIT201,PCTB211,I5,MT1, IT,TIT202,PCTB213,I5,MT1 |
+|     3      |   0.2   |       4        | CSE,TCT201,PCT211A,I1,MT2, CSE,TCT203,PCTB211,I2,MT1, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCTB211,I3,MT4, EE,TEE202,NCTB205,I3,MT6, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB211,I5,MT3 |
+|     4      |   0.2   |       4        | CSE,TCT201,PCT211A,I2,MT6, CSE,TCT203,PCT211A,I1,MT6, CSE,TCT202,NCTB205,I2,MT5, EE,TEE201,PCT211A,I1,MT2, EE,TEE202,NCTB205,I4,MT4, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,NCTB205,I1,MT5, IT,TIT201,PCT211A,I5,MT2, IT,TIT202,PCTB213,I5,MT4 |
+|     5      |  0.167  |       5        | CSE,TCT201,PCTB211,I2,MT5, CSE,TCT203,PCTB211,I1,MT6, CSE,TCT202,PCTB213,I2,MT6, EE,TEE201,PCTB211,I1,MT4, EE,TEE202,PCT211A,I4,MT1, EE,TEE203,NCTB205,I4,MT1, ECE,TEC201,PCT211A,I3,MT5, IT,TIT201,PCTB211,I5,MT1, IT,TIT202,PCT211A,I5,MT3 |
+|     6      |  0.143  |       6        | CSE,TCT201,NCTB205,I2,MT5, CSE,TCT203,NCTB205,I1,MT4, CSE,TCT202,PCTB211,I1,MT3, EE,TEE201,PCTB211,I1,MT4, EE,TEE202,PCT211A,I3,MT2, EE,TEE203,PCTB213,I4,MT4, ECE,TEC201,PCTB213,I1,MT2, IT,TIT201,PCTB211,I5,MT4, IT,TIT202,NCTB205,I5,MT2 |
+|     7      |  0.143  |       6        | CSE,TCT201,PCTB211,I2,MT6, CSE,TCT203,NCTB205,I2,MT3, CSE,TCT202,NCTB205,I1,MT6, EE,TEE201,PCTB213,I1,MT6, EE,TEE202,PCTB211,I3,MT3, EE,TEE203,PCTB211,I4,MT4, ECE,TEC201,PCTB211,I3,MT5, IT,TIT201,NCTB205,I5,MT4, IT,TIT202,PCTB211,I5,MT3 |
+|     8      |  0.143  |       6        | CSE,TCT201,PCTB213,I2,MT3, CSE,TCT203,NCTB205,I1,MT4, CSE,TCT202,PCTB213,I2,MT3, EE,TEE201,PCT211A,I2,MT2, EE,TEE202,PCT211A,I4,MT6, EE,TEE203,PCT211A,I4,MT2, ECE,TEC201,PCTB211,I1,MT5, IT,TIT201,NCTB205,I5,MT6, IT,TIT202,PCTB211,I5,MT3 |
+|     9      |  0.125  |       7        | CSE,TCT201,PCTB213,I2,MT3, CSE,TCT203,PCTB211,I1,MT1, CSE,TCT202,PCTB213,I2,MT3, EE,TEE201,NCTB205,I3,MT6, EE,TEE202,PCTB213,I4,MT5, EE,TEE203,PCTB213,I4,MT4, ECE,TEC201,PCTB211,I3,MT3, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB213,I5,MT5 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 1
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,NCTB205,I1,MT4, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT6, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,NCTB205,I1,MT5, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCTB213,I5,MT4 |
+|     5      |   0.25  |       3        | CSE,TCT201,PCT211A,I2,MT6, CSE,TCT203,PCTB211,I2,MT1, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCTB213,I3,MT1, EE,TEE202,NCTB205,I3,MT6, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB213,I5,MT4 |
+|     6      |  0.167  |       5        | CSE,TCT201,PCT211A,I1,MT2, CSE,TCT203,PCT211A,I1,MT6, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCTB211,I3,MT4, EE,TEE202,PCTB211,I3,MT2, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB211,I5,MT3 |
+|     7      |  0.167  |       5        | CSE,TCT201,PCTB213,I1,MT5, CSE,TCT203,PCTB211,I1,MT5, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,PCTB211,I1,MT3, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCTB213,I5,MT1 |
+|     8      |  0.167  |       5        | CSE,TCT201,PCT211A,I2,MT6, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,NCTB205,I2,MT5, EE,TEE201,PCTB213,I1,MT2, EE,TEE202,NCTB205,I4,MT4, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,PCTB211,I1,MT3, IT,TIT201,PCT211A,I5,MT2, IT,TIT202,PCTB213,I5,MT1 |
+|     9      |  0.125  |       7        | CSE,TCT201,PCT211A,I2,MT6, CSE,TCT203,PCT211A,I1,MT6, CSE,TCT202,NCTB205,I2,MT5, EE,TEE201,PCT211A,I1,MT2, EE,TEE202,NCTB205,I4,MT4, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,PCT211A,I1,MT2, IT,TIT201,PCT211A,I5,MT2, IT,TIT202,PCTB213,I5,MT4 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 2
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCTB213,I3,MT1, EE,TEE202,PCTB211,I3,MT6, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,PCT211A,I5,MT1, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCTB211,I1,MT3, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |   0.25  |       3        | CSE,TCT201,PCT211A,I2,MT6, CSE,TCT203,PCTB211,I2,MT1, CSE,TCT202,PCT211A,I2,MT2, EE,TEE201,PCTB213,I3,MT1, EE,TEE202,NCTB205,I3,MT6, EE,TEE203,NCTB205,I4,MT3, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB213,I5,MT4 |
+|     8      |   0.25  |       3        | CSE,TCT201,PCTB213,I2,MT6, CSE,TCT203,PCT211A,I1,MT6, CSE,TCT202,PCTB211,I1,MT4, EE,TEE201,PCTB213,I3,MT1, EE,TEE202,PCTB211,I3,MT2, EE,TEE203,NCTB205,I4,MT4, ECE,TEC201,NCTB205,I1,MT5, IT,TIT201,PCTB213,I5,MT5, IT,TIT202,PCTB211,I5,MT3 |
+|     9      |  0.143  |       6        | CSE,TCT201,PCT211A,I1,MT5, CSE,TCT203,PCT211A,I1,MT5, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,NCTB205,I3,MT6, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,PCTB213,I1,MT4, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCTB213,I5,MT4 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 3
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCTB213,I4,MT6, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB211,I1,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCTB211,I1,MT3, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I2,MT6, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,PCT211A,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     8      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB211,I2,MT3, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,PCTB211,I5,MT6, IT,TIT202,PCT211A,I5,MT6 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,PCTB213,I3,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 4
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB211,I1,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB211,I1,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCTB213,I4,MT6, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,NCTB205,I4,MT2, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     8      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,NCTB205,I3,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,NCTB205,I5,MT1 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCTB211,I5,MT1 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 5
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCTB211,I1,MT5, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,PCTB211,I5,MT4, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,PCT211A,I5,MT2, IT,TIT202,NCTB205,I5,MT2 |
+|     8      |  0.333  |       2        | CSE,TCT201,PCT211A,I2,MT2, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,NCTB205,I5,MT5 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB211,I4,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 6
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I3,MT3, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT1, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |  0.333  |       2        | CSE,TCT201,NCTB205,I2,MT2, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     8      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCTB211,I1,MT5, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT5, IT,TIT202,PCT211A,I5,MT6 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,NCTB205,I5,MT3 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 7
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT2, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT3, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     6      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,PCT211A,I5,MT1, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,NCTB205,I1,MT5, CSE,TCT202,PCTB211,I2,MT3, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,NCTB205,I5,MT1 |
+|     8      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I2,MT2, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,PCTB213,I3,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCT211A,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I1,MT6, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT1, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCT211A (40)  |  Dr James Web (I1)  | D2 14:00 - 16:30 (MT4) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCTB213 (35)  | Mr. Mike Brown (I2) | D1 14:00 - 16:30 (MT2) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+> Generation # 8
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schedule # | fitness | # of conflicts |                                                                                              classes [dept,class,room,instructor,meeting-time]                                                                                               |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|     1      |   1.0   |       0        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCTB213,I2,MT3, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     2      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     3      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     4      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     5      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,NCTB205,I1,MT5, CSE,TCT202,PCTB211,I2,MT3, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,NCTB205,I5,MT1 |
+|     6      |   0.5   |       1        | CSE,TCT201,PCTB211,I2,MT3, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCT211A,I2,MT4, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCT211A,I4,MT5, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     7      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT2, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,PCT211A,I5,MT1, IT,TIT202,PCT211A,I5,MT6 |
+|     8      |  0.333  |       2        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT3, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,PCT211A,I4,MT3, ECE,TEC201,PCTB213,I3,MT4, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
+|     9      |   0.25  |       3        | CSE,TCT201,PCTB211,I2,MT1, CSE,TCT203,PCT211A,I1,MT4, CSE,TCT202,PCTB213,I2,MT1, EE,TEE201,PCT211A,I1,MT1, EE,TEE202,PCTB213,I3,MT1, EE,TEE203,NCTB205,I4,MT5, ECE,TEC201,NCTB205,I1,MT6, IT,TIT201,NCTB205,I5,MT3, IT,TIT202,PCT211A,I5,MT6 |
++------------+---------+----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+| Class # | Dept | Course (number, max # of students) | Room (Capacity) |   Instructor (Id)   |   Meeting Time (Id)    |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+|    1    | CSE  |          AI (TCT201, 25)           |   PCTB211 (25)  | Mr. Mike Brown (I2) | D1 10:00 - 12:30 (MT1) |
+|    2    | CSE  |          SE (TCT203, 25)           |   PCTB213 (35)  | Mr. Mike Brown (I2) | D2 10:00 - 12:30 (MT3) |
+|    3    | CSE  |         DBMS (TCT202, 40)          |   PCT211A (40)  | Mr. Mike Brown (I2) | D2 14:00 - 16:30 (MT4) |
+|    4    |  EE  |          CT (TEE201, 35)           |   PCT211A (40)  |  Dr James Web (I1)  | D1 10:00 - 12:30 (MT1) |
+|    5    |  EE  |          EM (TEE202, 30)           |   PCTB213 (35)  |  Dr Steve Day (I3)  | D1 10:00 - 12:30 (MT1) |
+|    6    |  EE  |          NT (TEE203, 35)           |   PCT211A (40)  |  Mrs Jane Doe (I4)  | D2 10:00 - 12:30 (MT3) |
+|    7    | ECE  |          DLC (TEC201, 45)          |   NCTB205 (45)  |  Dr James Web (I1)  | D3 14:00 - 16:30 (MT6) |
+|    8    |  IT  |          MC (TIT201, 30)           |   NCTB205 (45)  | Dr. Julia Blue (I5) | D2 10:00 - 12:30 (MT3) |
+|    9    |  IT  |          MT (TIT202, 40)           |   PCT211A (40)  | Dr. Julia Blue (I5) | D3 14:00 - 16:30 (MT6) |
++---------+------+------------------------------------+-----------------+---------------------+------------------------+
+
+    </div>
+</body>
+
+</html>
